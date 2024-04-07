@@ -1,6 +1,5 @@
 #pragma once
 
-#include "vectors.hpp"
 #include "system.hpp"
 
 struct Solver
@@ -12,4 +11,5 @@ struct Solver
     void applyGravity();
     void applyConstraint();
     void updatePositions(float dt);
+    void applyConstraintV2(float dt);
 };

@@ -1,8 +1,6 @@
-#pragma once
-
 #include "system.hpp"
 
-System::System() : acceleration(vecs::Vec2()), velocity(vecs::Vec2()), position(vecs::Vec2()){};
+System::System(float X_, float Y_) : acceleration(vecs::Vec2()), velocity(vecs::Vec2()), position(vecs::Vec2(X_, Y_)) {}
 
 void System::accelerate(vecs::Vec2 acc)
 {
