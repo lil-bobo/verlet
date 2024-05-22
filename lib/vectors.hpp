@@ -45,12 +45,15 @@ namespace vecs
         Vec3 operator/(const float &other) const;
 
         float norm();
+        Vec3 normalize();
 
         float X;
         float Y;
         float Z;
     };
     Vec3 crossV3(Vec3 v, Vec3 u);
+    Vec3 reflectionV3(Vec3 v, Vec3 u);
     float dotV3(Vec3 v, Vec3 u);
+    float distance(Vec3 v, Vec3 u);
 
 }

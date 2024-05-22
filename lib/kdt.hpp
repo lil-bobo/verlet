@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <cmath>
 #include "vectors.hpp"
+#include "loader.hpp"
 
 namespace kdt
 {
@@ -18,4 +19,6 @@ namespace kdt
 	bool compareX(vecs::Vec3 &a, vecs::Vec3 &b);
 	bool compareY(vecs::Vec3 &a, vecs::Vec3 &b);
 	bool compareZ(vecs::Vec3 &a, vecs::Vec3 &b);
+	bool isPointInsideTriangle(const vecs::Vec3 &point, const vecs::Vec3 &v0, const vecs::Vec3 &v1, const vecs::Vec3 &v2);
+	bool sphereTriangleCollision(const vecs::Vec3 &sphereCenter, const float sphereRadius, const vecs::Vec3 &v0, const vecs::Vec3 &v1, const vecs::Vec3 &v2);
 }

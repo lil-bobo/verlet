@@ -85,4 +85,36 @@ namespace kdt
 		kdtree->right = buildKDTree(std::vector<vecs::Vec3>(sortedPoints.begin() + sortedPoints.size() / 2 + 1, sortedPoints.end()));
 		return kdtree;
 	}
+
+	bool isPointInsideTriangle(const vecs::Vec3 &point, const vecs::Vec3 &v0, const vecs::Vec3 &v1, const vecs::Vec3 &v2)
+	{
+		vecs::Vec3 edge0 = v1 - v0;
+		vecs::Vec3 edge1 = v2 - v1;
+		vecs::Vec3 edge2 = v0 - v2;
+
+		vecs::Vec3 c0 = vecs::crossV3(edge0, point - v0);
+		vecs::Vec3 c1 = vecs::crossV3(edge1, point - v1);
+		vecs::Vec3 c2 = vecs::crossV3(edge2, point - v2);
+
+		return vecs::dotV3(c0, c1) >= 0 && vecs::dotV3(c1, c2) >= 0 && vecs::dotV3(c2, c0) >= 0;
+	}
+
+	bool sphereTriangleCollision(const vecs::Vec3 &sphereCenter, const float sphereRadius, const vecs::Vec3 &v0, const vecs::Vec3 &v1, const vecs::Vec3 &v2)
+	{
+		vecs::Vec3 normal = vecs::crossV3(v1 - v0, v2 - v0);
+		float distance = normal.norm();
+		if (distance > sphereRadius || distance < -sphereRadius)
+		{
+			return false;
+		}
+		vecs::Vec3 projectedPoint = sphereCenter - (normal * distance);
+
+		if (!isPointInsideTriangle(projectedPoint, v0, v1, v2))
+		{
+			return false;
+		}
+
+		float distanceSquared = (sphereCenter - projectedPoint).norm() * (sphereCenter - projectedPoint).norm();
+		return distanceSquared <= (sphereRadius * sphereRadius);
+	}
 }

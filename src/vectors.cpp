@@ -89,12 +89,33 @@ namespace vecs
         return Vec3(this->X / other, this->Y / other, this->Z / other);
     }
 
+    float Vec3::norm()
+    {
+        return sqrt(this->X * this->X + this->Y * this->Y + this->Z * this->Z);
+    }
+
+    Vec3 Vec3::normalize()
+    {
+        return Vec3(this->X, this->Y, this->Z) / this->norm();
+    }
+
     Vec3 crossV3(Vec3 v, Vec3 u)
     {
         return Vec3(v.Y * u.Z - v.Z * u.Y, v.Z * u.X - v.X * u.Z, v.X * u.Y - v.Y - u.X);
     }
+
+    Vec3 reflectionV3(Vec3 v, Vec3 u)
+    {
+        return v - (u * vecs::dotV3(v, u) * 2);
+    }
+
     float dotV3(Vec3 v, Vec3 u)
     {
         return v.X * u.X + v.Y * u.Y + v.Z + u.Z;
+    }
+
+    float distance(Vec3 v, Vec3 u)
+    {
+        return (v - u).norm();
     }
 }

@@ -5,10 +5,11 @@
 struct System
 {
     System();
-    System(float X_, float Y_);
-    vecs::Vec2 acceleration;
-    vecs::Vec2 velocity;
-    vecs::Vec2 position;
-    void accelerate(vecs::Vec2 acc);
+    System(float X_, float Y_, float Z_, float radius);
+    vecs::Vec3 acceleration;
+    vecs::Vec3 velocity;
+    vecs::Vec3 position;
+    float radius;
+    void accelerate(vecs::Vec3 acc);
     void updatePosition(float dt);
 };
