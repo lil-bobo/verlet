@@ -2,7 +2,7 @@
 CXX = g++
 
 # Compiler flags
-CXXFLAGS = -Wall -Wextra -I lib -std=c++11
+CXXFLAGS = -Wall -Wextra -I include -std=c++11
 
 # Target executable
 TARGET = prog

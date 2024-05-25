@@ -65,3 +65,6 @@ c'est dur.
 - Pour détecter les collisions en 3D, itérer pour chaque face / sommet et vérifier si à un moment t on entre en contact avec une surface et a un moment t + dt, est-ce qu'on traverse une surface (résolutions d'une équation à une inconnue)
 - l'ouverture du fichier obj doit etre faite en dehors du solver.cpp / mettre un nouveau parametre pour la classe Solver
 - On fait la simulation et on écrit les coordonnées dans une fichier obj (au lieu de coordonnées python). De cette manière on peut voir le déplacement de la balle par rapport au terrain
+- Problème avec le calcul de t
+- https://fr.wikipedia.org/wiki/Coordonnées_barycentriques
+- Incompréhension total de la recherche de collision, vraiment besoin d'aide de quiconque ça devient alertant là

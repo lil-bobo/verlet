@@ -21,13 +21,13 @@ namespace objl
 				if (prefix == "v")
 				{
 					vecs::Vec3 vertex;
-					iss >> vertex.X >> vertex.Y >> vertex.Z;
+					iss >> vertex.X >> vertex.Z >> vertex.Y;
 					this->vertices.push_back(vertex);
 				}
 				else if (prefix == "vn")
 				{
 					vecs::Vec3 normal;
-					iss >> normal.X >> normal.Y >> normal.Z;
+					iss >> normal.X >> normal.Z >> normal.Y;
 					this->normals.push_back(normal);
 				}
 				else if (prefix == "f")

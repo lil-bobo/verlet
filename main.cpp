@@ -4,6 +4,7 @@
 #include "solver.hpp"
 #include "loader.hpp"
 #include <fstream>
+#include <math.h>
 #include "quadtree.hpp"
 #include <cstdlib>
 
@@ -88,13 +89,13 @@ void afficheobjloader()
 {
 
     objl::Loader loader = objl::Loader();
-    char filename[] = "models/big_terrain.obj";
+    char filename[] = "models/test.obj";
     loader.load(filename);
     Solver solver = Solver();
     std::ofstream myfile;
     // myfile.open("tools/golf.txt", std::ofstream::out | std::ofstream::trunc);
     myfile.open("tools/coords.obj", std::ofstream::out | std::ofstream::trunc);
-    float dt = 0.1f;
+    float dt = 0.05f;
     float counter = 0.0f;
     // myfile << "[";
     while (counter < 40.0f)
